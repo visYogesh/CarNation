@@ -335,16 +335,16 @@ const Services: React.FC = () => {
   return (
     <section
       id="services"
-      className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-28"
+      className="relative  text-black py-28"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-pink-600 mb-6">
+          <h2 className="text-4xl font-bold text-purple-500 mb-6">
             Comprehensive Auto Services
           </h2>
-          <p className="text-xl text-purple-500 max-w-3xl mx-auto py-2">
+          <p className="text-xl text-black max-w-3xl mx-auto py-2">
             From routine maintenance to complex repairs, our certified
-            technicians provide expert service for all makes and models.
+            technicians provide expert service for all makes and models with automotive excellence.
           </p>
         </div>
       </div>
@@ -352,7 +352,7 @@ const Services: React.FC = () => {
       {/* Full-width panel with inset content */}
       <div className="w-full py-8">
         <div className="mx-auto px-4 sm:px-6 lg:px-20">
-          <div className="bg-gray-300 rounded-2xl border-4 border-purple-700 p-6">
+          <div className="bg-gray-300 rounded-2xl border-2 border-purple-400 p-6">
             <h3 className="text-2xl font-semibold text-center text-slate-900 mb-6">
               Services We Provide
             </h3>

@@ -81,7 +81,7 @@ const Testimonials: React.FC = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900">
+    <section id="testimonials" className="py-28 bg-white">
       <motion.div
         className="container mx-auto px-4"
         initial="hidden"
@@ -90,12 +90,12 @@ const Testimonials: React.FC = () => {
         variants={containerVariants}
       >
         <motion.div className="text-center mb-16" variants={headerVariants}>
-          <h2 className="text-4xl font-bold text-pink-600 mb-4">
+          <h2 className="text-4xl font-bold text-purple-500 mb-4">
             What Our Customers Say
           </h2>
 
           <a target="_blank" title="Rate us on Google" href="https://search.google.com/local/writereview?placeid=ChIJh88JoU4fTIYRLJu4PFLlpFc" >
-            <p className="py-2 text-xl text-purple-500 max-w-3xl mx-auto hover:text-purple-700 transition-colors duration-300">
+            <p className="py-2 text-xl text-black max-w-3xl mx-auto hover:text-purple-700 transition-colors duration-300">
               Review us on Google Maps to appear here
             </p>
           </a>

@@ -1,19 +1,18 @@
 import { useTypewriter, Cursor } from "react-simple-typewriter";
-import { Button } from "@/components/ui/button";
-import { Check, Star } from "lucide-react";
+import { Check, Star, Phone } from "lucide-react";
+import { FaInstagram, FaFacebookF, FaWhatsapp } from "react-icons/fa";
 
 const cardImages = [
   "/images/card0.png",
   "/images/brands.png",
   "/images/dum.png",
 ];
-// const cardImages = ["/images/car1.jpg", "/images/car2.jpg", "/images/car3.jpg"];
 
 const Hero = () => {
   const [text] = useTypewriter({
     words: [
-      "Trusted Auto Repair",
       "Precision & Honesty",
+      "Trusted Auto Repair",
       "Elite Customer Experience",
       "Your Car's Best Friend",
       "Automotive Excellence",
@@ -27,45 +26,37 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-24"
+      className="relative text-black pt-16 sm:pt-[6px] scroll-mt-28"
     >
+      {/* 🔝 Top Contact + Social Info */}
+
+      {/* 🎯 Hero Section Content */}
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-4xl sm:text-4xl md:text-4xl lg:text-5xl leading-tight text-cyan-600">
-                Driven by Dallas,
-                <span className="block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent py-4">
+              <h2 className="text-4xl sm:text-4xl md:text-4xl lg:text-5xl leading-tight text-black font-bold">
+                Dallas Auto Repair,
+                <span className="block bg-purple-500 from-black to-gray-700 bg-clip-text text-transparent py-4">
                   {text}
                   <Cursor cursorStyle="|" />
                 </span>
-                {/* Top-Right Button */}
-                <div className="absolute top-6 left-6 md:left-auto md:right-6 z-10 md:py-16">
-                  <button
-                    onClick={() =>
-                      window.open(
-                        "https://calendly.com/carnationelite",
-                        "_blank"
-                      )
-                    }
-                    className="bg-purple-500 text-white px-1 py-2 rounded-lg shadow-lg hover:bg-purple-600 transition-colors duration-300 text-sm md:text-base"
-                  >
-                    Book an Appointment
-                  </button>
-                </div>
               </h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
+              <p className="text-xl text-black leading-relaxed">
                 Experience honest, quality automotive service with speed that
-                fits your schedule. Specializing in luxury vehicles with premium
-                amenities.
+                fits your schedule. Specializing in luxury vehicles with auto
+                repair and premium amenities.
               </p>
             </div>
 
+            {/* Features List */}
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Check className="w-6 h-6 text-green-400" />
                 <span className="text-lg">
-                  Certified Mechanics for all luxury brands 🔧🚗
+                  Certified mechanics specializing in auto repair for all luxury
+                  brands 🔧🚗
                 </span>
               </div>
               <div className="flex items-center space-x-3">
@@ -80,23 +71,29 @@ const Hero = () => {
               </div>
             </div>
 
+            {/* Quote Box */}
             <div className="bg-[#1e293b] text-white rounded-xl p-6 mt-6 shadow-lg border border-blue-500/10 hover:shadow-blue-500/30 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 ease-in-out">
-              <p className="text-lg leading-relaxed">
+              <p className="text-xl leading-relaxed">
                 “At{" "}
-                <span className="text-cyan-600 font-semibold">
+                <span className="text-purple-500 font-semibold">
                   CarNation Elite
                 </span>
-                , Dallas, our aim is to deliver top-quality auto repair with{" "}
+                , Dallas, our aim is to deliver{" "}
+                <span className="text-purple-500 font-semibold">
+                  auto repair,
+                </span>{" "}
+                top-quality with{" "}
                 <span className="font-semibold text-white/90">precision</span>,
-                <span className="font-semibold text-white/90">honesty</span>,
-                and
+                <span className="font-semibold text-white/90"> honesty</span>,
+                and{" "}
                 <span className="font-semibold text-white/90">
                   elite customer care
-                </span>
-                —keeping Dallas driving with confidence.”
+                </span>{" "}
+                – keeping Dallas driving with confidence.”
               </p>
             </div>
 
+            {/* Ratings */}
             <div className="flex items-center space-x-6 pt-4">
               <div className="flex items-center space-x-2">
                 <div className="flex space-x-1">
@@ -107,17 +104,16 @@ const Hero = () => {
                     />
                   ))}
                 </div>
-                <span className="text-gray-300">5/5 Rating</span>
+                <span className="text-gray-800">5/5 Rating</span>
               </div>
               <div className="text-gray-300">
-                <span className="font-semibold text-white">500+ </span>
-
-                <span className="text-pink-400">Happy Customers</span>
+                <span className="font-semibold text-black">500+ </span>
+                <span className="text-gray-800">Happy Customers</span>
               </div>
             </div>
           </div>
 
-          {/* ────────── RIGHT “CAR CARDS” FAN ────────── */}
+          {/* Right Image Cards */}
           <div className="relative flex justify-center items-center py-8">
             <div className="flex items-center justify-center space-x-[-100px]">
               {cardImages.map((src, i) => {

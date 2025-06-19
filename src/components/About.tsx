@@ -37,7 +37,7 @@ const waLink = `${waBase}?phone=${TARGET_NUMBER}&text=${encodeURIComponent(
 const About = () => (
   <section
     id="about"
-    className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white"
+    className="py-24  text-black"
   >
     <div className="container mx-auto px-6">
       {/* Header & Stats */}
@@ -49,11 +49,15 @@ const About = () => (
           transition={{ duration: 0.6 }}
           className="space-y-8"
         >
-          <h2 className="text-5xl font-extrabold text-pink-600 py-8">
+          <h2 className="text-5xl font-bold text-purple-500 py-8">
             Why Choose CarNation Elite?
           </h2>
+
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            Auto Repair & Maintenance Experts 🧑‍🔧🔧
+          </h1>
           <p className="text-lg leading-relaxed">
-            At our premier car service center, we combine honesty, exceptional skill, and unmatched speed making us the trusted choice for people across Dallas. Your vehicle
+            At our premier car service center, we combine honesty, exceptional skill, auto repair and unmatched speed making us the trusted choice for people across Dallas. Your vehicle
             represents freedom, value, and peace of mind, and we treat it that way.
           </p>
           <p className="text-lg leading-relaxed">
@@ -76,11 +80,11 @@ const About = () => (
                   visible: { opacity: 1, y: 0 },
                 }}
                 whileHover={{ scale: 1.05 }}
-                className="flex flex-col items-center bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-6 text-center"
+                className="flex flex-col items-center bg-gray-200 bg-opacity-50 backdrop-blur-lg rounded-xl p-6 text-center"
               >
                 <stat.icon className="w-10 h-10 text-purple-500 mb-3" />
                 <div className="text-3xl font-bold mb-1">{stat.number}</div>
-                <div className="text-sm uppercase tracking-wider">
+                <div className="text-base text-black tracking-wider">
                   {stat.label}
                 </div>
               </motion.div>
@@ -115,7 +119,7 @@ const About = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center mb-12 text-pink-600"
+          className="text-4xl font-bold text-center mb-12 text-purple-500"
         >
           Meet Our Expert Team
         </motion.h3>
@@ -146,7 +150,7 @@ const About = () => (
                 visible: { opacity: 1, y: 0 },
               }}
               whileHover={{ scale: 1.05 }}
-              className="flex flex-col items-center bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-6 text-center"
+              className="flex flex-col items-center bg-gray-200 bg-opacity-50 backdrop-blur-lg rounded-xl p-6 text-center"
             >
               <div className="w-24 h-24 rounded-full overflow-hidden mb-4">
                 <span className="text-2xl font-bold text-white">
@@ -164,7 +168,7 @@ const About = () => (
                   )}
                 </span>
               </div>
-              <h4 className="text-xl font-semibold mb-1 text-white">
+              <h4 className="text-xl font-semibold mb-1 text-black">
                 {member.name}
               </h4>
               <p className="text-purple-500 font-medium mb-2">{member.title}</p>
@@ -178,7 +182,7 @@ const About = () => (
                 className="flex items-center space-x-2 hover:text-cyan-400 transition-colors"
               >
                 <FaWhatsapp className="text-green-500" size={20} />
-                <span className="font-medium text-cyan-200 py-4">
+                <span className="font-medium text-black  py-4">
                   Contact : Chat with me!
                 </span>
               </a>

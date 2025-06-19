@@ -9,7 +9,7 @@ import { ArrowUp } from "lucide-react";
 const ServiceDetailCard = memo(({ service, idx }: { service: any; idx: number }) => (
   <div id={`blog${idx + 1}`} className="service-card">
     <Card className="shadow-lg rounded-2xl transition-transform hover:scale-[1.02]">
-      <CardHeader className="bg-purple-700 text-white rounded-t-2xl p-4">
+      <CardHeader className="bg-purple-500 text-white rounded-t-2xl p-4">
         <CardTitle className="text-2xl">{service.title}</CardTitle>
       </CardHeader>
       <CardContent className="p-6 space-y-4 rounded-b-2xl bg-gray-300">
@@ -48,11 +48,11 @@ ServiceDetailCard.displayName = "ServiceDetailCard";
 
 const Blogs: React.FC = () => {
   return (
-    <section  id="blogs" className="py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900">
+    <section  id="blogs" className="py-28 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-pink-600 mb-4">Service Details</h2>
-          <p className="text-xl text-purple-500 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold text-purple-500 mb-4">Service Details</h2>
+          <p className="text-xl text-black max-w-2xl mx-auto">
             Dive into full breakdowns of each service, from detailed descriptions to step-by-step features.
           </p>
         </div>

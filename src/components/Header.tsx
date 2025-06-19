@@ -1,13 +1,38 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import { Clock, MapPin } from "lucide-react";
 
 const Header = () => {
+  // height light nav links
+
+  const [activeId, setActiveId] = useState("");
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px 0px -60% 0px", // triggers early
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveId(entry.target.id);
+        }
+      });
+    }, options);
+
+    navLinks.forEach((link) => {
+      const section = document.querySelector(link.href);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  // close menu on scroll
   useEffect(() => {
     const handleScroll = () => {
       if (isMenuOpen) setIsMenuOpen(false);
@@ -16,7 +41,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMenuOpen]);
 
-  // close when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -28,21 +52,19 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#services", label: "Services" },
-    { href: "#sales-rentals", label: "Sales & Rentals" },
-    { href: "#blogs", label: "Blogs" },
-    { href: "#testimonials", label: "Reviews" },
-    { href: "#contact", label: "Contact" },
-  ];
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#services", label: "Services" },
+  { href: "#sales-rentals", label: "Sales" },
+  { href: "#blogs", label: "Blogs" },
+  { href: "#testimonials", label: "Reviews" },
+  { href: "#contact", label: "Contact" },
+];
 
   const number = "12145974922";
   const message = encodeURIComponent(
     "Hey! I came across CarNation Elite and have a few questions about your services and warranties—could someone assist me?"
   );
-
-  // Detect mobile vs desktop
   const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   const waBase = isMobile ? "whatsapp://send" : "https://web.whatsapp.com/send";
   const waLink = `${waBase}?phone=${number}&text=${message}`;
@@ -51,10 +73,10 @@ const Header = () => {
     <>
       <header className="fixed top-0 w-full z-50 bg-slate-900 text-white">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            {/* Logo and Brand Info */}
+          <div className="flex flex-wrap items-center justify-between">
+            {/* Logo + Address (left) */}
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center overflow-hidden">
+              <div className="w-12 h-12 bg-blue-600 rounded-full overflow-hidden flex items-center justify-center">
                 <img
                   src="/images/logo.png"
                   alt="CarNation Elite Logo"
@@ -62,64 +84,22 @@ const Header = () => {
                 />
               </div>
               <div>
-                <h1 className="text-2xl font-bold">CarNation Elite</h1>
+                <h1 className="text-purple-500 text-xl md:text-2xl font-bold">
+                  CarNation Elite
+                </h1>
                 <a
-                  href="https://www.google.com/maps/place/CarNation+Elite-+Dallas+Auto+Repair+Service/@32.93362,-96.7475204,17z/data=!3m1!4b1!4m6!3m5!1s0x864c1f4ea109cf87:0x57a4e5523cb89b2c!8m2!3d32.93362!4d-96.7449455!16s%2Fg%2F11vtbd3kgd?hl=en&entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
+                  href="https://www.google.com/maps/place/CarNation+Elite"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-xs hover:underline"
+                  className="text-xs hover:underline"
                 >
-                  13610, FLOYD CIRCLE, DALLAS,TX 75243
+                  13610, FYD CIRCLE, DALLAS, TX 75243
                 </a>
               </div>
             </div>
 
-            {/* Desktop Navigation (lg and up) */}
-            <nav className="hidden lg:flex space-x-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="hover:text-blue-400 transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-
-            {/* Desktop Contact Info (lg and up) */}
-
-            <div className="hidden lg:flex items-center gap-8 p-4 bg-slate-800 border border-slate-700 rounded-lg shadow-sm">
-              <a
-                href={waLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Message on What's App"
-                className="flex items-center space-x-2 hover:text-cyan-400 transition-colors"
-              >
-                <FaWhatsapp className="text-green-500" size={20} />
-                <span title="Message on What's App"  className="font-medium text-cyan-200">Contact</span>
-              </a>
-              <div className="flex items-center space-x-2">
-                <Clock size={20} className="text-cyan-500" />
-                <span className="font-medium text-cyan-200">
-                  Mon–Sat | 9:00 – 5:00
-                </span>
-              </div>
-              <a
-                href="https://www.google.com/maps/place/CarNation+Elite-+Dallas+Auto+Repair+Service/@32.93362,-96.7475204,17z/data=!3m1!4b1!4m6!3m5!1s0x864c1f4ea109cf87:0x57a4e5523cb89b2c!8m2!3d32.93362!4d-96.7449455!16s%2Fg%2F11vtbd3kgd?hl=en&entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Get Directions"
-                className="flex items-center space-x-2 hover:text-cyan-400 transition-colors"
-              >
-                <MapPin  size={20} className="text-cyan-500" />
-                <span title="Get Directions" className="font-medium text-cyan-200">Maps</span>
-              </a>
-            </div>
-
-            {/* Hamburger Toggle (below lg: tablets + mobile) */}
-            <div className="lg:hidden">
+            {/* Hamburger Menu (mobile) */}
+            <div className="lg:hidden ml-auto">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Toggle Menu"
@@ -127,10 +107,54 @@ const Header = () => {
                 {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
             </div>
+
+            {/* Centered Nav Links (desktop only) */}
+            <nav className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 space-x-6">
+              {navLinks.map((link) => {
+                const isActive = activeId === link.href.replace("#", "");
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className={`transition-colors font-medium ${
+                      isActive
+                        ? "text-green-500"
+                        : "text-white hover:text-green-300"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
+            </nav>
+
+            {/* Book Button (desktop only) */}
+            <div className="hidden lg:block ml-auto">
+              <button
+                onClick={() =>
+                  window.open("https://calendly.com/carnationelite", "_blank")
+                }
+                className="bg-purple-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-purple-600 transition-colors text-sm md:text-base"
+              >
+                Book Appointment
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile/Tablet Book Button */}
+          <div className="lg:hidden w-full mt-4 flex justify-center">
+            <button
+              onClick={() =>
+                window.open("https://calendly.com/carnationelite", "_blank")
+              }
+              className="bg-purple-500 text-white px-2 py-2 rounded-lg shadow-md hover:bg-purple-600 transition-colors text-base w-auto max-w-xs"
+            >
+              Book Appointment
+            </button>
           </div>
         </div>
 
-        {/* Mobile & Tablet Menu (below lg) */}
+        {/* Mobile Nav Links */}
         {isMenuOpen && (
           <div
             ref={menuRef}
@@ -147,7 +171,7 @@ const Header = () => {
               </a>
             ))}
 
-            {/* Mobile Contact Info */}
+            {/* Contact Info */}
             <div className="pt-4 border-t border-slate-700 text-sm space-y-1">
               <a
                 href={waLink}
@@ -162,7 +186,7 @@ const Header = () => {
                 MON-SAT | 9:00 – 5:00
               </p>
               <a
-                href="https://www.google.com/maps/place/CarNation+Elite-+Dallas+Auto+Repair+Service/@32.93362,-96.7475204,17z/data=!3m1!4b1!4m6!3m5!1s0x864c1f4ea109cf87:0x57a4e5523cb89b2c!8m2!3d32.93362!4d-96.7449455!16s%2Fg%2F11vtbd3kgd?hl=en&entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
+                href="https://www.google.com/maps/place/CarNation+Elite"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-cyan-600 font-semibold hover:underline block"
@@ -174,11 +198,10 @@ const Header = () => {
         )}
       </header>
 
-      {/* Spacer for fixed header */}
-      <div className="pt-[84px]" />
+      {/* Spacer */}
+      <div className="pt-[110px]" />
     </>
   );
 };
 
 export default Header;
-

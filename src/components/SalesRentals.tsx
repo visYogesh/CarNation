@@ -21,22 +21,6 @@ const sectionCard = (title: string, children: React.ReactNode) => (
   </Card>
 );
 
-// what's App
-// const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
-//   navigator.userAgent
-// );
-
-// const TARGET_NUMBER = "12145974922";
-// const DEFAULT_MESSAGE =
-//   "Hi Sam, I have some questions about your car repair and maintenance services.";
-
-// // Dynamic WhatsApp URL
-// const waBase = isMobile ? "whatsapp://send" : "https://web.whatsapp.com/send";
-// const waLink = `${waBase}?phone=${TARGET_NUMBER}&text=${encodeURIComponent(
-//   DEFAULT_MESSAGE
-// )}`;
-
-// Recursive renderer for modal fields
 const formatKey = (key: string) =>
   key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
@@ -151,6 +135,7 @@ const vehiclesForSale: VehicleForSale[] = [
       "Shiftable Automatic",
     ],
   },
+  
 ];
 
 interface VehicleForRent {
@@ -327,16 +312,16 @@ const SalesRentalsPage: React.FC = () => {
 
       <section
         id="sales-rentals"
-        className="py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900"
+        className="py-28 text-black"
       >
         <div className="container mx-auto px-4">
           {/* ===== Sales ===== */}
-          <div className="mb-20">
+          <div className="mb-[-102px]"> {/* overlap header */}
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-pink-600 mb-4 select-none">
+              <h2 className="text-4xl font-bold text-purple-500 mb-4 select-none">
                 Vehicles for Sale
               </h2>
-              <p className="text-xl text-purple-500 max-w-3xl mx-auto py-4">
+              <p className="text-xl text-black max-w-3xl mx-auto py-4">
                 Discover our carefully selected collection of luxury and premium
                 vehicles for sale.
               </p>
@@ -416,7 +401,7 @@ const SalesRentalsPage: React.FC = () => {
           </div>
 
           {/* ===== Rentals ===== */}
-          <div>
+          {/* <div>
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-pink-600 mb-4">
                 Vehicles For Rentals
@@ -430,7 +415,7 @@ const SalesRentalsPage: React.FC = () => {
               <h1 className="text-5xl text-center text-gray-300">
                 We Will Bring Rentals Soon{" "}
               </h1>
-            </div>
+            </div> */}
 
             {/* we will bring rentals soon..... */}
             {/* <motion.div
@@ -502,7 +487,7 @@ const SalesRentalsPage: React.FC = () => {
                 </motion.article>
               ))}
             </motion.div> */}
-          </div>
+          {/* </div> */}
         </div>
       </section>
 
