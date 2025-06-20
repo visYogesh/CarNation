@@ -65,11 +65,11 @@ const Blogs: React.FC = () => {
         <title>CarNation Elite - Auto Repair in Dallas, TX</title>
         <meta
           name="description"
-          content="Premium auto repair services in Dallas. Schedule your appointment today with CarNation Elite — your trusted local mechanic for luxury vehicles."
+          content="Premium auto repair services in Dallas. Schedule your appointment today with CarNation Elite — your trusted local mechanic for luxury vehicles, best car reparir, best car service, near me, best car service, in dallas, best auto repair in dallas, car nation, car service, engine, oil change, general service, best, friendly, trusted auto repair in dallas, CarNation Elite"
         />
         <meta
           name="keywords"
-          content="auto repair, car repair Dallas, mechanic near me, Dallas auto repair, luxury car service, brake service, oil change Dallas"
+          content="best car reparir, best car service, near me, best car service, in dallas, best auto repair in dallas, car nation, car service, engine, oil change, general service, best, friendly, trusted auto repair in dallas, CarNation Elite, auto repair, car repair Dallas, mechanic near me, Dallas auto repair, luxury car service, brake service, oil change Dallas"
         />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -95,38 +95,6 @@ const Blogs: React.FC = () => {
             priceRange: "$$",
           })}
         </script>
-      </Helmet>
-
-      <Helmet>
-        <title>Page Title | CarNation Elite</title>
-        <meta
-          name="description"
-          content="Brief and relevant description of the page."
-        />
-        <meta
-          name="keywords"
-          content="best car reparir, best car service, near me, best car service, in dallas, best auto repair in dallas, car nation, car service, engine, oil change, general service, best, friendly, trusted auto repair in dallas, CarNation Elite"
-        />
-        <link rel="canonical" href="https://carnationelite.com/" />
-
-        {/* Open Graph (for social sharing) */}
-        <meta property="og:title" content="Page Title | CarNation Elite" />
-        <meta
-          property="og:description"
-          content="Description for sharing on social media."
-        />
-        <meta property="og:image" content="/images/elite.png" />
-        <meta property="og:url" content="https://carnationelite.com/" />
-        <meta property="og:type" content="website" />
-
-        {/* Optional: Twitter card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Page Title | CarNation Elite" />
-        <meta
-          name="twitter:description"
-          content="Description for Twitter share."
-        />
-        <meta name="twitter:image" content="/images/elite.png" />
       </Helmet>
 
       <div className="container mx-auto px-6">
