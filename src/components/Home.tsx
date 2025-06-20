@@ -8,7 +8,7 @@ const cardImages = [
   "/images/dum.png",
 ];
 
-const Hero = () => {
+const Home = () => {
   const [text] = useTypewriter({
     words: [
       "Precision & Honesty",
@@ -26,7 +26,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative text-black pt-16 sm:pt-[6px] scroll-mt-28"
+      className="relative text-black pt-16 sm:pt-[6px] scroll-mt-28 "
     >
       {/* 🔝 Top Contact + Social Info */}
 
@@ -79,7 +79,7 @@ const Hero = () => {
                   CarNation Elite
                 </span>
                 , Dallas, our aim is to deliver{" "}
-                <span className="text-purple-500 font-semibold">
+                <span className="text-green-500 font-semibold">
                   auto repair,
                 </span>{" "}
                 top-quality with{" "}
@@ -142,4 +142,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Home;

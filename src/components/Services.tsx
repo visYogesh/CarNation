@@ -335,7 +335,7 @@ const Services: React.FC = () => {
   return (
     <section
       id="services"
-      className="relative  text-black py-28"
+      className="relative  text-black py-40 sm:py-28 md:py-44"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Phone, MapPin, Clock, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -59,7 +59,6 @@ const contactItems = [
     title: "Email",
     content: (
       <>
-        {/* change with clients mail */}
         <a
           href="mailto:acarnationelite@gmail.com"
           className="text-black hover:underline"
@@ -86,203 +85,30 @@ const cardVariants = {
 };
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    message: "",
-    file: null,
-  });
-
-  const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: files ? files[0] : value,
-    }));
-  };
-
-  // updated what's app
-  // const sendWhatsApp = () => {
-  //   const { firstName, lastName, phone, email, message } = formData;
-  //   const text = `First Name: ${firstName}\nLast Name: ${lastName}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`;
-  //   const url = `https://wa.me/12145974922?text=${encodeURIComponent(text)}`;
-  //   window.open(url, "_blank");
-  // };
-  const sendWhatsApp = () => {
-    const TARGET_NUMBER = "12145974922"; // ← fixed “to” number
-    const { firstName, lastName, phone, email, message } = formData;
-
-    // Detect mobile vs desktop
-    const isMobile =
-      /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
-        navigator.userAgent
-      );
-
-    // Choose native app URI or web URL
-    const waBase = isMobile
-      ? "whatsapp://send"
-      : "https://web.whatsapp.com/send";
-
-    // Build the text payload with all fields
-    const textPayload =
-      `First Name: ${firstName}\n` +
-      `Last Name: ${lastName}\n` +
-      `Phone: ${phone}\n` +
-      `Email: ${email}\n` +
-      `Message: ${message}`;
-
-    // Construct final link
-    const waLink = `${waBase}?phone=${encodeURIComponent(
-      TARGET_NUMBER
-    )}&text=${encodeURIComponent(textPayload)}`;
-
-    // Open WhatsApp
-    window.open(waLink, "_blank");
-  };
-
-  const sendEmail = () => {
-    const { firstName, lastName, phone, email, message } = formData;
-    const subject = encodeURIComponent("Hello CarNation Elite");
-    const body = encodeURIComponent(
-      `First Name: ${firstName}\n` +
-        `Last Name: ${lastName}\n` +
-        `Phone: ${phone}\n` +
-        `Email: ${email}\n\n` +
-        `Message:\n${message}`
-    );
-
-    // Change the email address to your client's email
-    const mailtoLink = `mailto:acarnationelite@gmail.com?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
-  };
-
   return (
-    <section id="contact" className="py-28 bg-white text-black">
+    <section id="contact" className="py-40 sm:py-28 md:py-44 bg-white text-black">
       <div className="container mx-auto px-6 lg:px-12">
         <h2 className="text-5xl text-purple-500 font-extrabold mb-4 text-center">
           Get In Touch
         </h2>
 
-        <motion.div
-          className="mt-16 border-2 border-gray-600 bg-white p-8 rounded-2xl shadow-lg max-w-4xl mx-auto space-y-6"
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h4 className=" text-2xl text-black font-bold text-center mb-4">
-            Send Us a Message
-          </h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label
-                htmlFor="firstName"
-                className="block text-sm font-medium mb-1 py-2"
-              >
-                First Name 
-              </label>
-              <input
-                id="firstName"
-                name="firstName"
-                type="text"
-                required
-                value={formData.firstName}
-                onChange={handleChange}
-                className="w-full bg-gray-300 text-black p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="lastName"
-                className="block text-sm font-medium mb-1 py-2"
-              >
-                Last Name 
-              </label>
-              <input
-                id="lastName"
-                name="lastName"
-                type="text"
-                required
-                value={formData.lastName}
-                onChange={handleChange}
-                className="w-full bg-gray-300 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium mb-1 py-2">
-                Phone 
-              </label>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                required
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full bg-gray-300 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-1 py-2">
-                E-mail 
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full bg-gray-300 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-            </div>
-          </div>
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium mb-1 py-2">
-              Message 
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              required
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full bg-gray-300 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-            />
-          </div>
-          {/* <div>
-            <label htmlFor="file" className="block text-sm font-medium mb-1">Attach a File:</label>
-            <input
-              id="file"
-              name="file"
-              type="file"
-              onChange={handleChange}
-              className="w-full text-sm text-gray-300"
-            />
-          </div> */}
-          <div className="flex justify-center space-x-4">
-            <button
-              type="button"
-              onClick={sendEmail}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-            >
-              Send Email
-            </button>
-            <button
-              type="button"
-              onClick={sendWhatsApp}
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-            >
-              Send WhatsApp
-            </button>
-          </div>
-        </motion.div>
+        {/* Google Form Embed */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSd0Gm229msbUizNl0a4ogRNVG1ZrK8cnxqy3ir9bf8qRHlLFA/viewform?usp=header"
+            width="100%"
+            height="800"
+            frameBorder="0"
+            marginHeight={0}
+            marginWidth={0}
+            className="rounded-2xl shadow-lg w-full"
+            title="Contact Form"
+          >
+            Loading…
+          </iframe>
+        </div>
 
+        {/* Contact Info Cards & Map */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {contactItems.map(({ Icon, title, content, color }, idx) => (

@@ -314,7 +314,7 @@ const SalesRentalsPage: React.FC = () => {
         id="sales-rentals"
         className="py-28 text-black"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 py-16 sm:py-0 md:py-20">
           {/* ===== Sales ===== */}
           <div className="mb-[-102px]"> {/* overlap header */}
             <div className="text-center mb-16">

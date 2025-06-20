@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
-const Header = () => {
+const Navbar = () => {
   // height light nav links
 
   const [activeId, setActiveId] = useState("");
@@ -56,7 +56,7 @@ const Header = () => {
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
   { href: "#sales-rentals", label: "Sales" },
-  { href: "#blogs", label: "Blogs" },
+  // { href: "#blogs", label: "Blogs" },
   { href: "#testimonials", label: "Reviews" },
   { href: "#contact", label: "Contact" },
 ];
@@ -204,4 +204,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;
