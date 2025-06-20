@@ -11,9 +11,15 @@ import {
 } from "@/components/ui/accordion";
 import { ArrowUp } from "lucide-react";
 
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-") // Replace non-alphanumeric with hyphens
+    .replace(/(^-|-$)+/g, ""); // Remove leading/trailing hyphens
+
 const ServiceDetailCard = memo(
   ({ service, idx }: { service: any; idx: number }) => (
-    <div id={`blog${idx + 1}`} className="service-card">
+    <div id={slugify(service.title)} className="service-card scroll-mt-32">
       <Card className="shadow-lg rounded-2xl transition-transform hover:scale-[1.02]">
         <CardHeader className="bg-purple-500 text-white rounded-t-2xl p-4">
           <CardTitle className="text-2xl">{service.title}</CardTitle>
@@ -99,9 +105,9 @@ const Blogs: React.FC = () => {
 
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-purple-500 mb-4">
+          <h1 className="text-4xl font-bold text-purple-500 mb-4">
             Auto Repair Services in Dallas
-          </h2>
+          </h1>
           <p className="text-xl text-black max-w-2xl mx-auto">
             Discover in-depth service breakdowns tailored for Dallas car
             owners—your trusted partner in auto repair near you.

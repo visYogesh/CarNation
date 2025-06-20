@@ -1,4 +1,3 @@
-
 // import Navbar from "@/components/Navbar";
 // import Home from "@/components/Home";
 // import Services from "@/components/Services";
@@ -38,23 +37,34 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Blogs from "@/components/Blogs";
+import services from "@/components/BlogServices";
+import { slugify } from "@/utils/slugify";
 
 const Index: React.FC = () => {
   const [showBlogs, setShowBlogs] = useState(false);
 
   useEffect(() => {
     const checkHash = () => {
-      const h = window.location.hash;
-      if (h.startsWith("#blog")) {
-        setShowBlogs(true);
-        // give React time to mount Blogs
-        setTimeout(() => {
-          document.querySelector(h)?.scrollIntoView({ behavior: "smooth" });
-        }, 200);
+      const hash = window.location.hash;
+
+      if (hash) {
+        const slug = decodeURIComponent(hash).replace("#", "");
+        const validSlugs = services.map((s) => slugify(s.title));
+
+        if (validSlugs.includes(slug)) {
+          setShowBlogs(true);
+
+          setTimeout(() => {
+            const el = document.querySelector(hash);
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }, 300);
+        }
       }
     };
 
-    checkHash();  
+    checkHash();
     window.addEventListener("hashchange", checkHash);
     return () => window.removeEventListener("hashchange", checkHash);
   }, []);
@@ -76,4 +86,3 @@ const Index: React.FC = () => {
 };
 
 export default Index;
-

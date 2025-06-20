@@ -126,9 +126,9 @@ const Contact = () => {
       </Helmet>
 
       <div className="container mx-auto px-6 lg:px-12">
-        <h2 className="text-5xl text-purple-500 font-extrabold mb-4 text-center">
+        <h1 className="text-5xl text-purple-500 font-extrabold mb-4 text-center">
           Contact CarNation Elite – Dallas Auto Experts
-        </h2>
+        </h1>
 
         {/* Google Form Embed */}
         <div className="mt-16 max-w-4xl mx-auto">

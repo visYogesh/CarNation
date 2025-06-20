@@ -403,6 +403,13 @@ const cardVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-") // Replace non-alphanumeric with hyphens
+    .replace(/(^-|-$)+/g, "");   // Remove leading/trailing hyphens
+
+
 const hoverTransition = { type: "tween", duration: 0.2, ease: "easeOut" };
 
 const Services: React.FC = () => {
@@ -461,13 +468,11 @@ const Services: React.FC = () => {
         </script>
       </Helmet>
 
-      
-
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-purple-500 mb-6">
-            Comprehensive Auto Services
-          </h2>
+          <h1 className="text-4xl font-bold text-purple-500 mb-6">
+            Comprehensive Auto Repair Services
+          </h1>
           <p className="text-xl text-black max-w-3xl mx-auto py-2">
             From routine maintenance to complex repairs, our certified
             technicians provide expert service for all makes and models with
@@ -537,7 +542,7 @@ const Services: React.FC = () => {
                   <div className="flex justify-center">
                     <Button asChild className="w-32">
                       <a
-                        href={`#blog${originalIndex + 1}`}
+                        href={`#${slugify(service.title)}`}
                         className="inline-block text-center"
                       >
                         More Details

@@ -109,9 +109,9 @@ const About: React.FC = () => (
           transition={{ duration: 0.6 }}
           className="space-y-6 md:space-y-8"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-purple-500">
+          <h1 className="text-4xl md:text-5xl font-bold text-purple-500">
             Why Choose Car-National Elite?
-          </h2>
+          </h1>
           <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
             Auto Repair & Maintenance Experts in Dallas 🧑‍🔧🔧
           </h1>
