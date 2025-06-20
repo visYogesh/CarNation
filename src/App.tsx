@@ -3,31 +3,31 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ConfettiEffect from "./components/ConfettiEffect";
+
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <ConfettiEffect />
-      {/* ADD ALL CUSTOM COMPONENTS BELOW */}
-      {/* Example: <Hero /> */}
-      {/* ADD ALL CUSTOM COMPONENTS ABOVE */}
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        {/* ADD ALL CUSTOM ROUTES BELOW THE CATCH-ALL "*" ROUTE */}
-        <Routes>
-          <Route path="/shopping-request" element={<Navigate to="/#sales-rentals" replace />} />
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <ConfettiEffect />
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/shopping-request" element={<Navigate to="/#sales-rentals" replace />} />
+            <Route path="/" element={<Index />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;

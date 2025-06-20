@@ -135,7 +135,6 @@ const vehiclesForSale: VehicleForSale[] = [
       "Shiftable Automatic",
     ],
   },
-  
 ];
 
 interface VehicleForRent {
@@ -291,10 +290,7 @@ const SalesRentalsPage: React.FC = () => {
           name="description"
           content="Browse luxury cars for sale or rent—fully inspected, top-tier service at My Dealership."
         />
-        <link
-          rel="canonical"
-          href="https://carnationelite.com"
-        />
+        <link rel="canonical" href="https://carnationelite.com" />
         <meta
           property="og:title"
           content="Premium Vehicles for Sale & Rentals"
@@ -303,20 +299,153 @@ const SalesRentalsPage: React.FC = () => {
           property="og:description"
           content="Discover our premium fleet for sale and rent. Quality guarantee and luxury experience."
         />
-        <meta
-          property="og:image"
-          content="/images/car1.jpg"
-        />
+        <meta property="og:image" content="/images/car1.jpg" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
 
-      <section
-        id="sales-rentals"
-        className="py-28 text-black"
-      >
+      <section id="sales-rentals" className="py-28 text-black">
+        <Helmet>
+          <title>CarNation Elite - Best Auto Repair in Dallas, TX</title>
+          <meta
+            name="description"
+            content="CarNation Elite is Dallas's trusted auto repair shop specializing in luxury cars. Experience honest, quality, and fast car repair with certified mechanics near you."
+          />
+          <meta
+            name="keywords"
+            content="auto repair Dallas, car service Dallas, mechanic near me, luxury car repair, Dallas auto repair, best mechanic in Dallas, auto diagnostics, brake service, car maintenance"
+          />
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "AutoRepair",
+              name: "CarNation Elite",
+              image: "https://www.car-national.com/images/logo.png",
+              url: "https://www.car-national.com",
+              telephone: "+1-214-597-4922",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "13610 Floyd Circle",
+                addressLocality: "Dallas",
+                addressRegion: "TX",
+                postalCode: "75243",
+                addressCountry: "US",
+              },
+              description:
+                "Dallas's best auto repair and luxury car service center. Trusted mechanics offering diagnostics, engine repair, brake service and more.",
+              areaServed: "Dallas, TX",
+              openingHours: "Mo-Sa 09:00-17:00",
+            })}
+          </script>
+        </Helmet>
+
+        <Helmet>
+          <title>Page Title | CarNation Elite</title>
+          <meta
+            name="description"
+            content="Brief and relevant description of the page."
+          />
+          <meta
+            name="keywords"
+            content="best car reparir, best car service, near me, best car service, in dallas, best auto repair in dallas, car nation, car service, engine, oil change, general service, best, friendly, trusted auto repair in dallas, CarNation Elite"
+          />
+          <link rel="canonical" href="https://carnationelite.com/" />
+
+          {/* Open Graph (for social sharing) */}
+          <meta property="og:title" content="Page Title | CarNation Elite" />
+          <meta
+            property="og:description"
+            content="Description for sharing on social media."
+          />
+          <meta property="og:image" content="/images/elite.png" />
+          <meta
+            property="og:url"
+            content="https://carnationelite.com/"
+          />
+          <meta property="og:type" content="website" />
+
+          {/* Optional: Twitter card */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Page Title | CarNation Elite" />
+          <meta
+            name="twitter:description"
+            content="Description for Twitter share."
+          />
+          <meta name="twitter:image" content="/images/elite.png" />
+        </Helmet>
+
+        <Helmet>
+          <title>CarNation Elite - Auto Repair in Dallas, TX</title>
+          <meta
+            name="description"
+            content="Premium auto repair services in Dallas. Schedule your appointment today with CarNation Elite — your trusted local mechanic for luxury vehicles."
+          />
+          <meta
+            name="keywords"
+            content="auto repair, car repair Dallas, mechanic near me, Dallas auto repair, luxury car service, brake service, oil change Dallas"
+          />
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "AutoRepair",
+              name: "CarNation Elite",
+              image: "https://carnationelite.com/images/elite.png",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "13610 Floyd Circle",
+                addressLocality: "Dallas",
+                addressRegion: "TX",
+                postalCode: "75243",
+                addressCountry: "US",
+              },
+              telephone: "+1-214-597-4922",
+              url: "https://carnationelite.com",
+              openingHours: "Mo-Sa 09:00-17:00",
+              sameAs: [
+                "https://www.facebook.com/CarNationElite",
+                "https://www.instagram.com/CarNationElite",
+              ],
+              priceRange: "$$",
+            })}
+          </script>
+        </Helmet>
+
+        <Helmet>
+          <title>Page Title | CarNation Elite</title>
+          <meta
+            name="description"
+            content="Brief and relevant description of the page."
+          />
+          <meta
+            name="keywords"
+            content="best car reparir, best car service, near me, best car service, in dallas, best auto repair in dallas, car nation, car service, engine, oil change, general service, best, friendly, trusted auto repair in dallas, CarNation Elite"
+          />
+          <link rel="canonical" href="https://carnationelite.com/" />
+
+          {/* Open Graph (for social sharing) */}
+          <meta property="og:title" content="Page Title | CarNation Elite" />
+          <meta
+            property="og:description"
+            content="Description for sharing on social media."
+          />
+          <meta property="og:image" content="/images/elite.png" />
+          <meta property="og:url" content="https://carnationelite.com/" />
+          <meta property="og:type" content="website" />
+
+          {/* Optional: Twitter card */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Page Title | CarNation Elite" />
+          <meta
+            name="twitter:description"
+            content="Description for Twitter share."
+          />
+          <meta name="twitter:image" content="/images/elite.png" />
+        </Helmet>
+
         <div className="container mx-auto px-4 py-16 sm:py-0 md:py-20">
           {/* ===== Sales ===== */}
-          <div className="mb-[-102px]"> {/* overlap header */}
+          <div className="mb-[-102px]">
+            {" "}
+            {/* overlap header */}
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-purple-500 mb-4 select-none">
                 Vehicles for Sale
@@ -326,7 +455,6 @@ const SalesRentalsPage: React.FC = () => {
                 vehicles for sale.
               </p>
             </div>
-
             <motion.div
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
               variants={containerVariants}
@@ -417,8 +545,8 @@ const SalesRentalsPage: React.FC = () => {
               </h1>
             </div> */}
 
-            {/* we will bring rentals soon..... */}
-            {/* <motion.div
+          {/* we will bring rentals soon..... */}
+          {/* <motion.div
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
               variants={containerVariants}
               initial="hidden"

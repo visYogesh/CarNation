@@ -1,182 +1,5 @@
-// import { Award, Users, Clock, Shield } from "lucide-react";
-// import { motion } from "framer-motion";
-// import { FaWhatsapp } from "react-icons/fa";
-
-// // Stats data with semantic color keys
-// const stats = [
-//   { icon: Award,  number: "3+",   label: "Years Experience",        color: "red" },
-//   { icon: Users,  number: "500+", label: "Happy Customers",         color: "green" },
-//   { icon: Clock,  number: "24hr", label: "Quick Turnaround",        color: "blue" },
-//   { icon: Shield,number: "100%",  label: "Satisfaction Guaranteed", color: "yellow" },
-// ];
-
-// // Map semantic colors to Tailwind utility classes
-// const colorClasses: Record<string, { icon: string; label: string }> = {
-//   red:    { icon: "text-red-500",    label: "text-black" },
-//   green:  { icon: "text-green-500",  label: "text-black" },
-//   blue:   { icon: "text-blue-500",   label: "text-black" },
-//   yellow: { icon: "text-yellow-500", label: "text-black" },
-// };
-
-// // Team data (unchanged)
-// const team = [
-//   {
-//     name: "Sam",
-//     title: "Founder",
-//     specialty: "+1 (214) 597-4922",
-//     image: "/images/car1.jpg",
-//   },
-// ];
-
-// // WhatsApp link logic (unchanged)
-// const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
-//   navigator.userAgent
-// );
-// const TARGET_NUMBER = "12145974922";
-// const DEFAULT_MESSAGE =
-//   "Hi Sam, I have some questions about your car repair and maintenance services.";
-// const waBase = isMobile ? "whatsapp://send" : "https://web.whatsapp.com/send";
-// const waLink = `${waBase}?phone=${TARGET_NUMBER}&text=${encodeURIComponent(
-//   DEFAULT_MESSAGE
-// )}`;
-
-// const About: React.FC = () => (
-//   <section id="about" className="py-24 text-black">
-//     <div className="container mx-auto px-6 py-8 sm:py-0 md:py-16">
-//       {/* Header & Stats */}
-//       <div className="grid lg:grid-cols-2 gap-16 items-center">
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 0.6 }}
-//           className="space-y-8"
-//         >
-//           <h2 className="text-5xl font-bold text-purple-500 py-8">
-//             Why Choose CarNation Elite?
-//           </h2>
-
-//           <h1 className="text-3xl font-bold text-gray-800 mb-4">
-//             Auto Repair & Maintenance Experts 🧑‍🔧🔧
-//           </h1>
-//           <p className="text-lg leading-relaxed">
-//             At our premier car service center, we combine honesty, exceptional skill, auto repair and unmatched speed making us the trusted choice for people across Dallas. Your vehicle
-//             represents freedom, value, and peace of mind, and we treat it that way.
-//           </p>
-//           <p className="text-lg leading-relaxed">
-//             Driven by quality, powered by trust, and built for efficiency, our expert technicians deliver dealership-level service without the high cost.
-//             As European car specialists, we get you back on the road quickly—with zero compromises on performance or reliability.
-//           </p>
-
-//           <motion.div
-//             initial="hidden"
-//             whileInView="visible"
-//             viewport={{ once: true }}
-//             variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
-//             className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6"
-//           >
-//             {stats.map((stat, i) => {
-//               const classes = colorClasses[stat.color] || colorClasses["red"];
-//               return (
-//                 <motion.div
-//                   key={i}
-//                   variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-//                   whileHover={{ scale: 1.05 }}
-//                   className="flex flex-col items-center bg-gray-200 bg-opacity-50 backdrop-blur-lg rounded-xl p-6 text-center"
-//                 >
-//                   <stat.icon className={`w-10 h-10 mb-3 ${classes.icon}`} />
-//                   <div className="text-3xl font-bold mb-1">{stat.number}</div>
-//                   <div className={`text-base tracking-wider ${classes.label}`}>{stat.label}</div>
-//                 </motion.div>
-//               );
-//             })}
-//           </motion.div>
-//         </motion.div>
-
-//         {/* Image with purple bordered frame & hover */}
-//         <motion.div
-//           initial={{ scale: 0.9, opacity: 0 }}
-//           whileInView={{ scale: 1, opacity: 1 }}
-//           whileHover={{ scale: 1.03, rotateZ: 3 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 0.6 }}
-//           className="rounded-3xl overflow-hidden shadow-2xl shadow-purple-600 ring-4 ring-purple-400"
-//         >
-//           <img
-//             src="/images/elite.png"
-//             alt="Modern auto repair facility"
-//             className="w-full h-96 object-cover"
-//           />
-
-//         </motion.div>
-
-//       </div>
-
-//       {/* Team Section */}
-//       <div className="mt-20">
-//         <motion.h3
-//           initial={{ opacity: 0, y: 20 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 0.6 }}
-//           className="text-4xl font-bold text-center mb-12 text-purple-500"
-//         >
-//           Meet Our Expert Team
-//         </motion.h3>
-
-//         <motion.div
-//           initial="hidden"
-//           whileInView="visible"
-//           viewport={{ once: true }}
-//           variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
-//           className={`${team.length === 1 ? "grid-cols-1 justify-items-center" : "md:grid-cols-3"} grid gap-8`}
-//         >
-//           {team.map((member, idx) => (
-//             <motion.div
-//               key={idx}
-//               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-//               whileHover={{ scale: 1.05 }}
-//               className="flex flex-col items-center bg-gray-200 bg-opacity-50 backdrop-blur-lg rounded-xl p-6 text-center"
-//             >
-//               <div className="w-24 h-24 rounded-full overflow-hidden mb-4">
-//                 {member.image ? (
-//                   <img
-//                     src={member.image}
-//                     alt={member.name}
-//                     className="w-full h-full object-cover rounded-full"
-//                   />
-//                 ) : (
-//                   <span className="text-2xl font-bold text-white">
-//                     {member.name
-//                       .split(" ")
-//                       .map((n) => n[0])
-//                       .join("")}
-//                   </span>
-//                 )}
-//               </div>
-//               <h4 className="text-xl font-semibold mb-1 text-black">{member.name}</h4>
-//               <p className="text-purple-500 font-medium mb-2">{member.title}</p>
-
-//               <a
-//                 href={waLink}
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 className="flex items-center space-x-2 hover:text-cyan-400 transition-colors"
-//               >
-//                 <FaWhatsapp className="text-green-500" size={20} />
-//                 <span className="font-medium text-black py-4">Contact : Chat with me!</span>
-//               </a>
-//             </motion.div>
-//           ))}
-//         </motion.div>
-//       </div>
-//     </div>
-//   </section>
-// );
-
-// export default About;
-
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Award, Users, Clock, Shield } from "lucide-react";
 import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
@@ -204,26 +27,14 @@ const colorClasses: Record<string, { icon: string; label: string }> = {
 
 // Team data
 const team = [
-  
-  
-  { 
-    name: "Sam", 
+  {
+    name: "Sam",
     title: "Founder",
-    image: "/images/car1.jpg" 
+    image: "/images/car1.jpg",
   },
-  // { 
-  //   name: "John", 
-  //   title: "Senior Mechanic",
-  //   image: "/images/car2.jpg" 
-  // },
-  // { 
-  //   name: "Emily", 
-  //   title: "Customer Service",
-  //   image: "/images/car3.jpg" 
-  // },
 ];
 
-// WhatsApp link logic
+// WhatsApp logic
 const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
   navigator.userAgent
 );
@@ -247,14 +58,82 @@ const carBrands = [
   { name: "Toyota", image: "/images/brands/toyota.png" },
   { name: "Honda", image: "/images/brands/honda.png" },
   { name: "Ford", image: "/images/brands/ford.png" },
-
   { name: "Nissan", image: "/images/brands/nissan.png" },
 ];
 
 const About: React.FC = () => (
   <section id="about" className="py-40 md:py-24 text-black">
+
+
+    <Helmet>
+          <title>CarNation Elite - Auto Repair in Dallas, TX</title>
+          <meta
+            name="description"
+            content="Premium auto repair services in Dallas. Schedule your appointment today with CarNation Elite — your trusted local mechanic for luxury vehicles."
+          />
+          <meta
+            name="keywords"
+            content="auto repair, car repair Dallas, mechanic near me, Dallas auto repair, luxury car service, brake service, oil change Dallas"
+          />
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "AutoRepair",
+              name: "CarNation Elite",
+              image: "https://carnationelite.com/images/elite.png",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "13610 Floyd Circle",
+                addressLocality: "Dallas",
+                addressRegion: "TX",
+                postalCode: "75243",
+                addressCountry: "US",
+              },
+              telephone: "+1-214-597-4922",
+              url: "https://carnationelite.com",
+              openingHours: "Mo-Sa 09:00-17:00",
+              sameAs: [
+                "https://www.facebook.com/CarNationElite",
+                "https://www.instagram.com/CarNationElite",
+              ],
+              priceRange: "$$",
+            })}
+          </script>
+        </Helmet>
+
+        <Helmet>
+          <title>Page Title | CarNation Elite</title>
+          <meta
+            name="description"
+            content="Brief and relevant description of the page."
+          />
+          <meta
+            name="keywords"
+            content="best car reparir, best car service, near me, best car service, in dallas, best auto repair in dallas, car nation, car service, engine, oil change, general service, best, friendly, trusted auto repair in dallas, CarNation Elite"
+          />
+          <link rel="canonical" href="https://carnationelite.com/" />
+
+          {/* Open Graph (for social sharing) */}
+          <meta property="og:title" content="Page Title | CarNation Elite" />
+          <meta
+            property="og:description"
+            content="Description for sharing on social media."
+          />
+          <meta property="og:image" content="/images/elite.png" />
+          <meta property="og:url" content="https://carnationelite.com/" />
+          <meta property="og:type" content="website" />
+
+          {/* Optional: Twitter card */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Page Title | CarNation Elite" />
+          <meta
+            name="twitter:description"
+            content="Description for Twitter share."
+          />
+          <meta name="twitter:image" content="/images/elite.png" />
+        </Helmet>
+
     <div className="container mx-auto px-6">
-      {/* Responsive grid: single column by default, two cols on lg */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 lg:items-stretch items-start">
         {/* Left Column */}
         <motion.div
@@ -265,22 +144,22 @@ const About: React.FC = () => (
           className="space-y-6 md:space-y-8"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-purple-500">
-            Why Choose CarNation Elite?
+            Why Choose Car-National Elite?
           </h2>
           <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
-            Auto Repair & Maintenance Experts 🧑‍🔧🔧
+            Auto Repair & Maintenance Experts in Dallas 🧑‍🔧🔧
           </h1>
           <p className="text-base md:text-lg leading-relaxed">
-            At our premier car service center, we combine honesty, exceptional
-            skill, auto repair and unmatched speed making us the trusted choice
-            for people across Dallas. Your vehicle represents freedom, value,
-            and peace of mind, and we treat it that way.
+            At our premier car service center, we combine honesty, expert skill,
+            and unmatched speed—making us the trusted choice for drivers across
+            Dallas. Your vehicle represents freedom, value, and peace of mind,
+            and we treat it that way.
           </p>
           <p className="text-base md:text-lg leading-relaxed">
             Driven by quality, powered by trust, and built for efficiency, our
-            expert technicians deliver dealership-level service without the high
-            cost. As European car specialists, we get you back on the road
-            quickly—with zero compromises on performance or reliability.
+            technicians deliver dealership-level service without the dealership
+            price. Specializing in European brands, we get you back on the road
+            quickly—with zero compromise.
           </p>
 
           {/* Stats */}
@@ -320,7 +199,7 @@ const About: React.FC = () => (
           </motion.div>
         </motion.div>
 
-        {/* Right Column: image + carousel pinned only on lg */}
+        {/* Right Column */}
         <div className="flex flex-col space-y-8 lg:justify-end">
           {/* Main Image */}
           <motion.div
@@ -333,7 +212,7 @@ const About: React.FC = () => (
           >
             <img
               src="/images/elite.png"
-              alt="Modern auto repair facility"
+              alt="Auto repair shop Dallas - Car-National Elite"
               className="w-full h-64 md:h-80 lg:h-96 object-cover"
             />
           </motion.div>
@@ -353,11 +232,11 @@ const About: React.FC = () => (
                 {[...carBrands, ...carBrands].map((brand, idx) => (
                   <div
                     key={idx}
-                    className="select-none w-28 h-28  flex-shrink-0 rounded-full overflow-hidden  p-1"
+                    className="select-none w-28 h-28 flex-shrink-0 rounded-full overflow-hidden p-1"
                   >
                     <img
                       src={brand.image}
-                      alt={brand.name}
+                      alt={`${brand.name} service center`}
                       className="w-full h-full object-contain"
                     />
                   </div>
@@ -399,12 +278,12 @@ const About: React.FC = () => (
                 visible: { opacity: 1, y: 0 },
               }}
               whileHover={{ scale: 1.05 }}
-              className="border-2 flex flex-col items-center bg-gray-100 bg-opacity-50 backdrop-blur-lg rounded-xl p-4  text-center"
+              className="border-2 flex flex-col items-center bg-gray-100 bg-opacity-50 backdrop-blur-lg rounded-xl p-4 text-center"
             >
               <div className="w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden mb-3">
                 <img
                   src={member.image}
-                  alt={member.name}
+                  alt={`Team member - ${member.name}, ${member.title}`}
                   className="w-full h-full object-cover"
                 />
               </div>

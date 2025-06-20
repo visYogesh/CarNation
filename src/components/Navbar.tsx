@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Navbar = () => {
   // height light nav links
@@ -52,14 +53,14 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#sales-rentals", label: "Sales" },
-  // { href: "#blogs", label: "Blogs" },
-  { href: "#testimonials", label: "Reviews" },
-  { href: "#contact", label: "Contact" },
-];
+    { href: "#home", label: "Home" },
+    { href: "#about", label: "About" },
+    { href: "#services", label: "Services" },
+    { href: "#sales-rentals", label: "Sales" },
+    // { href: "#blogs", label: "Blogs" },
+    { href: "#testimonials", label: "Reviews" },
+    { href: "#contact", label: "Contact" },
+  ];
 
   const number = "12145974922";
   const message = encodeURIComponent(
@@ -72,6 +73,73 @@ const Navbar = () => {
   return (
     <>
       <header className="fixed top-0 w-full z-50 bg-slate-900 text-white">
+        <Helmet>
+          <title>CarNation Elite - Auto Repair in Dallas, TX</title>
+          <meta
+            name="description"
+            content="Premium auto repair services in Dallas. Schedule your appointment today with CarNation Elite — your trusted local mechanic for luxury vehicles."
+          />
+          <meta
+            name="keywords"
+            content="auto repair, car repair Dallas, mechanic near me, Dallas auto repair, luxury car service, brake service, oil change Dallas"
+          />
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "AutoRepair",
+              name: "CarNation Elite",
+              image: "https://carnationelite.com/images/elite.png",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "13610 Floyd Circle",
+                addressLocality: "Dallas",
+                addressRegion: "TX",
+                postalCode: "75243",
+                addressCountry: "US",
+              },
+              telephone: "+1-214-597-4922",
+              url: "https://carnationelite.com",
+              openingHours: "Mo-Sa 09:00-17:00",
+              sameAs: [
+                "https://www.facebook.com/CarNationElite",
+                "https://www.instagram.com/CarNationElite",
+              ],
+              priceRange: "$$",
+            })}
+          </script>
+        </Helmet>
+
+        <Helmet>
+          <title>Page Title | CarNation Elite</title>
+          <meta
+            name="description"
+            content="Brief and relevant description of the page."
+          />
+          <meta
+            name="keywords"
+            content="best car reparir, best car service, near me, best car service, in dallas, best auto repair in dallas, car nation, car service, engine, oil change, general service, best, friendly, trusted auto repair in dallas, CarNation Elite"
+          />
+          <link rel="canonical" href="https://carnationelite.com/" />
+
+          {/* Open Graph (for social sharing) */}
+          <meta property="og:title" content="Page Title | CarNation Elite" />
+          <meta
+            property="og:description"
+            content="Description for sharing on social media."
+          />
+          <meta property="og:image" content="/images/elite.png" />
+          <meta property="og:url" content="https://carnationelite.com/" />
+          <meta property="og:type" content="website" />
+
+          {/* Optional: Twitter card */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Page Title | CarNation Elite" />
+          <meta
+            name="twitter:description"
+            content="Description for Twitter share."
+          />
+          <meta name="twitter:image" content="/images/elite.png" />
+        </Helmet>
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-wrap items-center justify-between">
             {/* Logo + Address (left) */}

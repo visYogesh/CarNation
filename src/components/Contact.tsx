@@ -1,6 +1,7 @@
 import React from "react";
 import { Phone, MapPin, Clock, Mail } from "lucide-react";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 const contactItems = [
   {
@@ -26,7 +27,7 @@ const contactItems = [
     content: (
       <>
         <a
-          href="https://www.google.com/maps/place/CarNation+Elite-+Dallas+Auto+Repair+Service/@32.93362,-96.7475204,17z/data=!3m1!4b1!4m6!3m5!1s0x864c1f4ea109cf87:0x57a4e5523cb89b2c!8m2!3d32.93362!4d-96.7449455!16s%2Fg%2F11vtbd3kgd?hl=en&entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
+          href="https://www.google.com/maps/place/CarNation+Elite-+Dallas+Auto+Repair+Service/"
           className="text-black hover:underline"
           title="Open in Google Maps"
           target="_blank"
@@ -66,9 +67,7 @@ const contactItems = [
         >
           acarnationelite@gmail.com
         </a>
-        <p className="text-sm text-black mt-2">
-          We'll respond within 24 hours
-        </p>
+        <p className="text-sm text-black mt-2">We'll respond within 24 hours</p>
       </>
     ),
     color: "bg-red-600",
@@ -86,10 +85,81 @@ const cardVariants = {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-40 sm:py-28 md:py-44 bg-white text-black">
+    <section
+      id="contact"
+      className="py-40 sm:py-28 md:py-44 bg-white text-black"
+    >
+      <Helmet>
+          <title>CarNation Elite - Auto Repair in Dallas, TX</title>
+          <meta
+            name="description"
+            content="Premium auto repair services in Dallas. Schedule your appointment today with CarNation Elite — your trusted local mechanic for luxury vehicles."
+          />
+          <meta
+            name="keywords"
+            content="auto repair, car repair Dallas, mechanic near me, Dallas auto repair, luxury car service, brake service, oil change Dallas"
+          />
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "AutoRepair",
+              name: "CarNation Elite",
+              image: "https://carnationelite.com/images/elite.png",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "13610 Floyd Circle",
+                addressLocality: "Dallas",
+                addressRegion: "TX",
+                postalCode: "75243",
+                addressCountry: "US",
+              },
+              telephone: "+1-214-597-4922",
+              url: "https://carnationelite.com",
+              openingHours: "Mo-Sa 09:00-17:00",
+              sameAs: [
+                "https://www.facebook.com/CarNationElite",
+                "https://www.instagram.com/CarNationElite",
+              ],
+              priceRange: "$$",
+            })}
+          </script>
+        </Helmet>
+
+        <Helmet>
+          <title>Page Title | CarNation Elite</title>
+          <meta
+            name="description"
+            content="Brief and relevant description of the page."
+          />
+          <meta
+            name="keywords"
+            content="best car reparir, best car service, near me, best car service, in dallas, best auto repair in dallas, car nation, car service, engine, oil change, general service, best, friendly, trusted auto repair in dallas, CarNation Elite"
+          />
+          <link rel="canonical" href="https://carnationelite.com/" />
+
+          {/* Open Graph (for social sharing) */}
+          <meta property="og:title" content="Page Title | CarNation Elite" />
+          <meta
+            property="og:description"
+            content="Description for sharing on social media."
+          />
+          <meta property="og:image" content="/images/elite.png" />
+          <meta property="og:url" content="https://carnationelite.com/" />
+          <meta property="og:type" content="website" />
+
+          {/* Optional: Twitter card */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Page Title | CarNation Elite" />
+          <meta
+            name="twitter:description"
+            content="Description for Twitter share."
+          />
+          <meta name="twitter:image" content="/images/elite.png" />
+        </Helmet>
+
       <div className="container mx-auto px-6 lg:px-12">
         <h2 className="text-5xl text-purple-500 font-extrabold mb-4 text-center">
-          Get In Touch
+          Contact CarNation Elite – Dallas Auto Experts
         </h2>
 
         {/* Google Form Embed */}

@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import { motion, Variants } from "framer-motion";
-
+import { Helmet } from "react-helmet-async";
 const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.2 } },
@@ -29,52 +29,52 @@ const Testimonials: React.FC = () => {
   const testimonials: Testimonial[] = [
     {
       name: "Sivaiah Katru",
-      image: "/images/r1.png",
+      image: "/images/reviews/r1.png",
       rating: 5,
       description:
         "Had a general service for my Ford Fusion on Monday; the service was exceptional and I recommend this garage for the people of Dallas.",
     },
     {
       name: "KS FOODS",
-      image: "/images/r2.png",
+      image: "/images/reviews/r2.png",
       rating: 5,
       description: "Great Service!!",
     },
     {
       name: "Mz Shebranda",
-      image: "/images/r3.png",
+      image: "/images/reviews/r3.png",
       rating: 5,
       description: "Great people great service",
     },
     {
       name: "Sai Jayanth",
-      image: "/images/r4.png",
+      image: "/images/reviews/r4.png",
       rating: 5,
       description: "Best Service",
     },
     {
       name: "Prashanth Manthapuri",
-      image: "/images/r5.png",
+      image: "/images/reviews/r5.png",
       rating: 5,
       description:
         "Very reasonable prices. They helped change starter motor for my car.",
     },
     {
       name: "srikanth sanju",
-      image: "/images/r6.png",
+      image: "/images/reviews/r6.png",
       rating: 5,
       description: "Quick and reliable service.",
     },
     {
       name: "Stephany Lopez",
-      image: "/images/r7.png",
+      image: "/images/reviews/r7.png",
       rating: 5,
       description:
         "Best service and price. Keep up the good work. We appreciate the quality of work you did in our jeep. I will definitely come back and recommend to all family and friends. Thank you!",
     },
     {
       name: "Taura Shona",
-      image: "/images/r8.png",
+      image: "/images/reviews/r8.png",
       rating: 5,
       description: "Top-notch service, very professional staff.",
     },
@@ -82,6 +82,73 @@ const Testimonials: React.FC = () => {
 
   return (
     <section id="testimonials" className="py-40 sm:py-28 md:py-44 bg-white">
+      <Helmet>
+        <title>CarNation Elite - Auto Repair in Dallas, TX</title>
+        <meta
+          name="description"
+          content="Premium auto repair services in Dallas. Schedule your appointment today with CarNation Elite — your trusted local mechanic for luxury vehicles."
+        />
+        <meta
+          name="keywords"
+          content="auto repair, car repair Dallas, mechanic near me, Dallas auto repair, luxury car service, brake service, oil change Dallas"
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AutoRepair",
+            name: "CarNation Elite",
+            image: "https://carnationelite.com/images/elite.png",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "13610 Floyd Circle",
+              addressLocality: "Dallas",
+              addressRegion: "TX",
+              postalCode: "75243",
+              addressCountry: "US",
+            },
+            telephone: "+1-214-597-4922",
+            url: "https://carnationelite.com",
+            openingHours: "Mo-Sa 09:00-17:00",
+            sameAs: [
+              "https://www.facebook.com/CarNationElite",
+              "https://www.instagram.com/CarNationElite",
+            ],
+            priceRange: "$$",
+          })}
+        </script>
+      </Helmet>
+
+      <Helmet>
+        <title>Page Title | CarNation Elite</title>
+        <meta
+          name="description"
+          content="Brief and relevant description of the page."
+        />
+        <meta
+          name="keywords"
+          content="best car reparir, best car service, near me, best car service, in dallas, best auto repair in dallas, car nation, car service, engine, oil change, general service, best, friendly, trusted auto repair in dallas, CarNation Elite"
+        />
+        <link rel="canonical" href="https://carnationelite.com/" />
+
+        {/* Open Graph (for social sharing) */}
+        <meta property="og:title" content="Page Title | CarNation Elite" />
+        <meta
+          property="og:description"
+          content="Description for sharing on social media."
+        />
+        <meta property="og:image" content="/images/elite.png" />
+        <meta property="og:url" content="https://carnationelite.com/" />
+        <meta property="og:type" content="website" />
+
+        {/* Optional: Twitter card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Page Title | CarNation Elite" />
+        <meta
+          name="twitter:description"
+          content="Description for Twitter share."
+        />
+        <meta name="twitter:image" content="/images/elite.png" />
+      </Helmet>
       <motion.div
         className="container mx-auto px-4"
         initial="hidden"
@@ -94,7 +161,11 @@ const Testimonials: React.FC = () => {
             What Our Customers Say
           </h2>
 
-          <a target="_blank" title="Rate us on Google" href="https://search.google.com/local/writereview?placeid=ChIJh88JoU4fTIYRLJu4PFLlpFc" >
+          <a
+            target="_blank"
+            title="Rate us on Google"
+            href="https://search.google.com/local/writereview?placeid=ChIJh88JoU4fTIYRLJu4PFLlpFc"
+          >
             <p className="py-2 text-xl text-black max-w-3xl mx-auto hover:text-purple-700 transition-colors duration-300">
               Review us on Google Maps to appear here
             </p>
