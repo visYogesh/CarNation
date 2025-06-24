@@ -130,9 +130,11 @@ const Navbar = () => {
                   rel="noopener noreferrer"
                   className="text-xs hover:underline"
                 >
-                  13610, FYD CIRCLE, DALLAS, TX 75243
+                  13610, FLOYD CIRCLE, DALLAS, TX 75243
                 </a>
               </div>
+
+              
             </div>
 
             {/* Hamburger Menu (mobile) */}

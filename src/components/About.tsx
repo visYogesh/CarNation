@@ -112,7 +112,7 @@ const About: React.FC = () => (
           <h1 className="text-4xl md:text-5xl font-bold text-purple-500">
             Why Choose Car-National Elite?
           </h1>
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
+          <h1 className="text-2xl md:text-[26px] font-bold text-gray-800">
             Auto Repair & Maintenance Experts in Dallas 🧑‍🔧🔧
           </h1>
           <p className="text-base md:text-lg leading-relaxed">
@@ -146,7 +146,7 @@ const About: React.FC = () => (
                     visible: { opacity: 1, y: 0 },
                   }}
                   whileHover={{ scale: 1.05 }}
-                  className="flex flex-col items-center bg-gray-100 bg-opacity-50 backdrop-blur-lg rounded-xl p-4 md:p-6 text-center"
+                  className="flex flex-col items-center bg-gray-400/35 bg-opacity-50 backdrop-blur-lg rounded-xl p-4 md:p-6 text-center"
                 >
                   <stat.icon
                     className={`w-8 h-8 md:w-10 md:h-10 mb-2 ${classes.icon}`}
@@ -171,10 +171,10 @@ const About: React.FC = () => (
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
-            whileHover={{ scale: 1.03, rotateZ: 3 }}
+            whileHover={{ scale: 1.03, rotateZ: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="select-none rounded-2xl overflow-hidden shadow-xl shadow-purple-300 ring-2 ring-purple-200"
+            className="select-none rounded-2xl overflow-hidden shadow-xl shadow-purple-400 ring-2 ring-purple-200"
           >
             <img
               src="/images/elite.png"
