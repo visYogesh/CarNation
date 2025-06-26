@@ -23,7 +23,7 @@ export default function ServiceToast({ link }: Props) {
 
   return (
     <div className="fixed top-40 sm:top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-[85%] md:w-[60%] lg:w-[50%]">
-      <div className="bg-white border border-gray-300 rounded-lg shadow-md px-4 py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 animate-slide-down-fade relative">
+      <div className="bg-purple-300 border border-gray-300 rounded-lg shadow-md px-4 py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 animate-slide-down-fade relative">
         
         {/* Mobile/Small: Button top-right */}
         <div className="absolute top-2 right-2 flex gap-2 sm:hidden">
@@ -46,7 +46,7 @@ export default function ServiceToast({ link }: Props) {
           <p className="font-semibold text-lg">
             💼 Want to book an appointment?{" "}
           </p>
-            <span className="text-green-600 font-bold">Auto Repair</span> ✨
+            <span className="text-green-600 font-bold text-xl">Auto Repair</span> ✨
           {/* <p className="text-gray-600 text-left">We're just a click away!</p> */}
         </div>
 

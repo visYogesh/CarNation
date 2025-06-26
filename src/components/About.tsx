@@ -110,7 +110,7 @@ const About: React.FC = () => (
           className="space-y-6 md:space-y-8"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-purple-500">
-            Why Choose Car-National Elite?
+            Why Choose CarNation Elite?
           </h1>
           <h1 className="text-2xl md:text-[26px] font-bold text-gray-800">
             Auto Repair & Maintenance Experts in Dallas 🧑‍🔧🔧
@@ -198,7 +198,7 @@ const About: React.FC = () => (
                 {[...carBrands, ...carBrands].map((brand, idx) => (
                   <div
                     key={idx}
-                    className="select-none w-28 h-28 flex-shrink-0 rounded-full overflow-hidden p-1"
+                    className="select-none  w-28 h-28 flex-shrink-0 rounded-full overflow-hidden p-1 hover:scale-125 transition-transform duration-300"
                   >
                     <img
                       src={brand.image}

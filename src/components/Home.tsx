@@ -816,7 +816,7 @@ const Home = () => {
                   <span className="font-bold text-yellow-300">honesty</span>,{" "}
                   <span className="font-bold text-blue-300">precision</span> and{" "}
                   <span className="font-bold text-green-300">speed</span> —
-                  keeping Dallas drivers confident and cared for.
+                  keeping Dallas people confident and cared for.
                 </p>
                 <div className="absolute bottom-4 right-4 text-6xl text-blue-400 opacity-20 rotate-180">
                   "
