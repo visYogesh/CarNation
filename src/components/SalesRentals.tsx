@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import vehicleData from "../data/vehicles";
 import rentalsData from "../data/rentalsvehicles";
+import { t } from "node_modules/framer-motion/dist/types.d-CtuPurYT";
 
 type AnyObject = Record<string, any>;
 
@@ -70,6 +71,7 @@ interface VehicleForSale {
   year: number;
   price: string;
   mileage: string;
+  sold?: boolean; // Optional field for sale status
   images: string[];
   features: string[];
 }
@@ -83,6 +85,7 @@ const vehiclesForSale: VehicleForSale[] = [
     year: 2008,
     price: "$7,123",
     mileage: "380,000 miles",
+    sold: true,
     images: [
       "/images/sales/Dodge/dr3.jpg",
       "/images/sales/Dodge/dr1.jpg",
@@ -103,6 +106,7 @@ const vehiclesForSale: VehicleForSale[] = [
     year: 1985,
     price: "$15,500",
     mileage: "40,000 miles",
+    sold: true,
     images: [
       "/images/sales/Chevrolet/ch1.jpg",
       "/images/sales/Chevrolet/ch2.jpg",
@@ -123,6 +127,7 @@ const vehiclesForSale: VehicleForSale[] = [
     year: 2012,
     price: "$10,111",
     mileage: "145,000 miles",
+    sold: true,
     images: [
       "/images/sales/Toyota/ty2.jpg",
       "/images/sales/Toyota/ty1.jpg",
@@ -138,14 +143,36 @@ const vehiclesForSale: VehicleForSale[] = [
   {
     id: 4,
     make: "Hyundai",
+    model: "Santa Fe Sport",
+    year: 2017,
+    price: "$10,111",
+    mileage: "190,000 miles",
+    sold: false,
+    images: [
+      "/images/sales/Hyundai_mvp/g_s1.png",
+      "/images/sales/Hyundai_mvp/s7.jpg",
+      "/images/sales/Hyundai_mvp/s8.jpg",
+      "/images/sales/Hyundai_mvp/s9.jpg",
+    ],
+    features: [
+      "Engine Model: GDI THETA II",
+      "Fuel Type: Gasoline",
+      "4WD/4-Wheel Drive/4x4",
+      "Automatic Transmission",
+    ],
+  },
+  {
+    id: 5,
+    make: "Hyundai",
     model: "Sonata",
     year: 2006,
     price: "$3,599",
     mileage: "145,000 miles",
+    sold: false,
     images: [
-      "/images/sales/Hyundai/s12.jpg",
-      "/images/sales/Hyundai/s7.jpg",
-      "/images/sales/Hyundai/s9.jpg",
+      "/images/sales/Hyundai/g_h1.png",
+      "/images/sales/Hyundai/g_h2.png",
+      "/images/sales/Hyundai/h3.jpg",
     ],
     features: [
       "Restored Condition",
@@ -155,12 +182,13 @@ const vehiclesForSale: VehicleForSale[] = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     make: "Kia",
     model: "Sedan",
     year: 2017,
     price: "$8,600",
     mileage: "145,000 miles",
+    sold: false,
     images: [
       "/images/sales/Kia/kia1.png",
       "/images/sales/Kia/k2.jpg",
@@ -174,16 +202,17 @@ const vehiclesForSale: VehicleForSale[] = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     make: "Ford",
     model: "Fusion SE",
     year: 2014,
     price: "$10,111",
     mileage: "190,000 miles",
+    sold: false,
     images: [
-      "/images/sales/ty2.jpg",
-      "/images/sales/ty1.jpg",
-      "/images/sales/ty3.jpg",
+      "/images/sales/Ford/g_f1.png",
+      "/images/sales/Ford/f10.jpg",
+      "/images/sales/Ford/g_f2.png",
     ],
     features: [
       "Alloy Wheels",
@@ -297,6 +326,11 @@ const SalesRentalsPage: React.FC = () => {
     };
   }, [allDetails]);
 
+  // Sort vehicles for sale by sold status
+  const sortedVehicles = [...vehiclesForSale].sort((a, b) => {
+    return Number(a.sold) - Number(b.sold);
+  });
+
   // JSON-LD structured data
   const schema = {
     "@context": "https://schema.org",
@@ -396,68 +430,85 @@ const SalesRentalsPage: React.FC = () => {
               initial="hidden"
               animate="visible"
             >
-              {vehiclesForSale.map((v, idx) => (
+              {sortedVehicles.map((v, idx) => (
                 <motion.article
                   key={v.id}
                   variants={cardVariants}
                   whileHover={{ scale: 1.03, y: -5 }}
                   className="cursor-pointer"
                 >
-                  <Card className="hover:shadow-xl transition-shadow duration-300 shadow-lg bg-white select-none">
-                    <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden">
-                      <Carousel
-                        emulateTouch
-                        swipeable
-                        showThumbs={false}
-                        infiniteLoop
-                      >
-                        {v.images.map((src, i) => (
-                          <div key={i}>
-                            <img
-                              src={src}
-                              alt={`${v.year} ${v.make} ${v.model} image ${
-                                i + 1
-                              }`}
-                              loading="lazy"
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        ))}
-                      </Carousel>
-                    </div>
-                    <CardHeader className="pb-2">
-                      <div className="flex justify-between items-start">
-                        <CardTitle className="text-xl text-slate-900">
-                          {v.year} {v.make} {v.model}
-                        </CardTitle>
-                        <Badge className="bg-green-100 text-green-800">
-                          {v.price}
-                        </Badge>
+                  <div className="relative h-full">
+                    {v.sold && (
+                      <img
+                        src="/images/sold-out.png"
+                        alt="Sold Out"
+                        className="absolute top-2 right-2 w-20 h-20 z-30 pointer-events-none select-none"
+                      />
+                    )}
+
+                    <Card className="hover:shadow-xl transition-shadow duration-300 shadow-lg bg-white select-none">
+                      <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden">
+                        <Carousel
+                          emulateTouch
+                          swipeable
+                          showThumbs={false}
+                          infiniteLoop
+                        >
+                          {v.images.map((src, i) => (
+                            <div key={i}>
+                              <img
+                                src={src}
+                                alt={`${v.year} ${v.make} ${v.model} image ${
+                                  i + 1
+                                }`}
+                                loading="lazy"
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          ))}
+                        </Carousel>
                       </div>
-                      <p className="text-gray-600">{v.mileage}</p>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="grid grid-cols-2 gap-2">
-                        {v.features.map((f, i) => (
-                          <div key={i} className="flex items-center space-x-2">
-                            <span className="w-2 h-2 bg-purple-600 rounded-full" />
-                            <span className="text-sm text-gray-700">{f}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <Button
-                        className="w-full bg-purple-600 hover:bg-purple-700 text-white"
-                        onClick={() => {
-                          // Now passes only the matching vehicleData object
-                          if (vehicleData[idx]) {
-                            setAllDetails(vehicleData[idx]);
-                          }
-                        }}
-                      >
-                        View Details
-                      </Button>
-                    </CardContent>
-                  </Card>
+                      <CardHeader className="pb-2">
+                        <div className="flex justify-between items-start">
+                          <CardTitle className="text-xl text-slate-900">
+                            {v.year} {v.make} {v.model}
+                          </CardTitle>
+                          <Badge className="bg-green-100 text-green-800">
+                            {v.price}
+                          </Badge>
+                        </div>
+                        <p className="text-gray-600">{v.mileage}</p>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <div className="grid grid-cols-2 gap-2">
+                          {v.features.map((f, i) => (
+                            <div
+                              key={i}
+                              className="flex items-center space-x-2"
+                            >
+                              <span className="w-2 h-2 bg-purple-600 rounded-full" />
+                              <span className="text-sm text-gray-700">{f}</span>
+                            </div>
+                          ))}
+                        </div>
+                        <Button
+                          className={`w-full ${
+                            v.sold
+                              ? "bg-gray-400 cursor-not-allowed"
+                              : "bg-purple-500 hover:bg-purple-700"
+                          } text-white`}
+                          onClick={() => {
+                            if (!v.sold && vehicleData[idx]) {
+                              setAllDetails(vehicleData[idx]);
+                            }
+                          }}
+                          disabled={v.sold}
+                        >
+                          {v.sold ? "Sold Out" : "View Details"}
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </motion.article>
               ))}
             </motion.div>
