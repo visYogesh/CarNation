@@ -78,29 +78,10 @@ interface VehicleForSale {
 
 // Sample “for sale” data (used for listing only)
 const vehiclesForSale: VehicleForSale[] = [
-  {
-    id: 1,
-    make: "Dodge",
-    model: "Ram 3500",
-    year: 2008,
-    price: "$7,123",
-    mileage: "380,000 miles",
-    sold: true,
-    images: [
-      "/images/sales/Dodge/dr3.jpg",
-      "/images/sales/Dodge/dr1.jpg",
-      "/images/sales/Dodge/dr2.jpg",
-    ],
-    features: [
-      "5-Speed Automatic",
-      "Heavy Duty",
-      "Cummins 6.7L Diesel Turbo",
-      "I6 350hp 610ft. lbs",
-    ],
-  },
+  
 
   {
-    id: 2,
+    id: 1,
     make: "Chevrolet",
     model: "C/K 10 Series",
     year: 1985,
@@ -121,7 +102,7 @@ const vehiclesForSale: VehicleForSale[] = [
   },
 
   {
-    id: 3,
+    id: 2,
     make: "Toyota",
     model: "Camry",
     year: 2012,
@@ -141,7 +122,7 @@ const vehiclesForSale: VehicleForSale[] = [
     ],
   },
   {
-    id: 4,
+    id: 3,
     make: "Hyundai",
     model: "Santa Fe Sport",
     year: 2017,
@@ -149,10 +130,9 @@ const vehiclesForSale: VehicleForSale[] = [
     mileage: "190,000 miles",
     sold: false,
     images: [
-      "/images/sales/Hyundai_mvp/g_s1.png",
+      "/images/sales/Hyundai_mvp/s9.jpg",
       "/images/sales/Hyundai_mvp/s7.jpg",
       "/images/sales/Hyundai_mvp/s8.jpg",
-      "/images/sales/Hyundai_mvp/s9.jpg",
     ],
     features: [
       "Engine Model: GDI THETA II",
@@ -162,7 +142,7 @@ const vehiclesForSale: VehicleForSale[] = [
     ],
   },
   {
-    id: 5,
+    id: 4,
     make: "Hyundai",
     model: "Sonata",
     year: 2006,
@@ -170,9 +150,9 @@ const vehiclesForSale: VehicleForSale[] = [
     mileage: "145,000 miles",
     sold: false,
     images: [
-      "/images/sales/Hyundai/g_h1.png",
-      "/images/sales/Hyundai/g_h2.png",
-      "/images/sales/Hyundai/h3.jpg",
+      "/images/sales/Hyundai/h6.jpeg",
+      "/images/sales/Hyundai/h7.jpeg",
+      "/images/sales/Hyundai/h8.jpeg",
     ],
     features: [
       "Restored Condition",
@@ -182,7 +162,7 @@ const vehiclesForSale: VehicleForSale[] = [
     ],
   },
   {
-    id: 6,
+    id: 5,
     make: "Kia",
     model: "Sedan",
     year: 2017,
@@ -190,8 +170,9 @@ const vehiclesForSale: VehicleForSale[] = [
     mileage: "145,000 miles",
     sold: false,
     images: [
-      "/images/sales/Kia/kia1.png",
       "/images/sales/Kia/k2.jpg",
+      "/images/sales/Kia/ki2.jpeg",
+      "/images/sales/Kia/ki1.jpeg",
       "/images/sales/Kia/k6.jpg",
     ],
     features: [
@@ -202,7 +183,7 @@ const vehiclesForSale: VehicleForSale[] = [
     ],
   },
   {
-    id: 7,
+    id: 6,
     make: "Ford",
     model: "Fusion SE",
     year: 2014,
@@ -210,15 +191,35 @@ const vehiclesForSale: VehicleForSale[] = [
     mileage: "190,000 miles",
     sold: false,
     images: [
-      "/images/sales/Ford/g_f1.png",
+      "/images/sales/Ford/fr2.jpeg",
+      "/images/sales/Ford/fr1.jpeg",
       "/images/sales/Ford/f10.jpg",
-      "/images/sales/Ford/g_f2.png",
     ],
     features: [
       "Alloy Wheels",
       "Automatic Transmission",
       "engine 2.5L I4 / EcoBoost.",
       "Cold A/C, Cruise Control, Keyless Entry",
+    ],
+  },
+  {
+    id: 7,
+    make: "Dodge",
+    model: "Ram 3500",
+    year: 2008,
+    price: "$7,123",
+    mileage: "380,000 miles",
+    sold: false,
+    images: [
+      "/images/sales/Dodge/dr3.jpg",
+      "/images/sales/Dodge/dr1.jpg",
+      "/images/sales/Dodge/dr2.jpg",
+    ],
+    features: [
+      "5-Speed Automatic",
+      "Heavy Duty",
+      "Cummins 6.7L Diesel Turbo",
+      "I6 350hp 610ft. lbs",
     ],
   },
 ];
