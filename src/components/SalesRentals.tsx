@@ -78,8 +78,6 @@ interface VehicleForSale {
 
 // Sample “for sale” data (used for listing only)
 const vehiclesForSale: VehicleForSale[] = [
-  
-
   {
     id: 1,
     make: "Chevrolet",
@@ -187,7 +185,7 @@ const vehiclesForSale: VehicleForSale[] = [
     make: "Ford",
     model: "Fusion SE",
     year: 2014,
-    price: "$10,111",
+    price: "$4900",
     mileage: "190,000 miles",
     sold: false,
     images: [
@@ -220,6 +218,108 @@ const vehiclesForSale: VehicleForSale[] = [
       "Heavy Duty",
       "Cummins 6.7L Diesel Turbo",
       "I6 350hp 610ft. lbs",
+    ],
+  },
+  {
+    id: 8,
+    make: "Infinity",
+    model: "QX60",
+    year: 2022,
+    price: "$21,500",
+    mileage: "190,000 miles",
+    sold: true,
+    images: [
+      "/images/sales/Infinity/qq1.png",
+      "/images/sales/Infinity/q3.jpg",
+      "/images/sales/Infinity/q2.jpg",
+    ],
+    features: [
+      "ProPILOT driver assist",
+      "Panoramic sunroof",
+      "Massage front seats",
+      "Bose 17-speaker audio",
+    ],
+  },
+  {
+    id: 9,
+    make: "Dodge",
+    model: "Avenger",
+    year: 2014,
+    price: "$7500",
+    mileage: "190,000 miles",
+    sold: true,
+    images: [
+      "/images/sales/Dod_Avenger/a1.png",
+      "/images/sales/Dod_Avenger/a2.jpg",
+      "/images/sales/Dod_Avenger/a4.jpg",
+      "/images/sales/Dod_Avenger/a5.jpg",
+      "/images/sales/Dod_Avenger/a6.jpg",
+    ],
+    features: [
+      "5-Speed Automatic",
+      "Heavy Duty",
+      "Cummins 6.7L Diesel Turbo",
+      "I6 350hp 610ft. lbs",
+    ],
+  },
+  {
+    id: 10,
+    make: "Mazda",
+    model: "Mazda6",
+    year: 2014,
+    price: "$4499",
+    mileage: "140,000 miles",
+    sold: false,
+    images: [
+      "/images/sales/Mazda6/m11.png",
+      "/images/sales/Mazda6/m12.png",
+    ],
+    features: [
+      "Automatic Transmission",
+      "A/C, Bluetooth, AUX Input",
+      "Power Windows, Locks, & Mirrors",
+      "2.5L 4-Cylinder, Great on Gas",
+    ],
+  },
+  {
+    id: 11,
+    make: "Jaguar",
+    model: "Jaguar SS 100",
+    year: 1934,
+    price: "$13,500",
+    mileage: "34,000  miles",
+    sold: false,
+    images: [
+      "/images/sales/Jaguar/j1.png",
+      "/images/sales/Jaguar/j2.jpg",
+      "/images/sales/Jaguar/j3.jpg",
+    
+    ],
+    features: [
+      "classic Beauty",
+      "Manual Transmission",
+      "Collector's Dream",
+      "Restored Condition",
+    ],
+  },
+  {
+    id: 12,
+    make: "Ford",
+    model: "Fusion",
+    year: 2016,
+    price: "$4,999",
+    mileage: "34,000  miles",
+    sold: false,
+    images: [
+      "/images/sales/Ford_Fusion/f11.png",
+      "/images/sales/Ford_Fusion/f12.png",
+      "/images/sales/Ford_Fusion/f13.png",
+    ],
+    features: [
+      "classic Beauty",
+      "Manual Transmission",
+      "Collector's Dream",
+      "Restored Condition",
     ],
   },
 ];
