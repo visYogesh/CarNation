@@ -145,7 +145,7 @@ const vehiclesForSale: VehicleForSale[] = [
     model: "Sonata",
     year: 2006,
     price: "$3,599",
-    mileage: "145,000 miles",
+    mileage: "260,000 miles",
     sold: false,
     images: [
       "/images/sales/Hyundai/h6.jpeg",
@@ -153,10 +153,10 @@ const vehiclesForSale: VehicleForSale[] = [
       "/images/sales/Hyundai/h8.jpeg",
     ],
     features: [
-      "Restored Condition",
+      "Cruise control",
       "Automatic Transmission",
       "2.4L 4-Cylinder",
-      "A/C, Cruise control, CD/Radio",
+      "Cool A/C, CD/Radio",
     ],
   },
   {
@@ -316,10 +316,10 @@ const vehiclesForSale: VehicleForSale[] = [
       "/images/sales/Ford_Fusion/f13.png",
     ],
     features: [
-      "classic Beauty",
-      "Manual Transmission",
-      "Collector's Dream",
-      "Restored Condition",
+      "Automatic Transmission",
+      "A/C, Bluetooth, AUX Input",
+      "Power Windows, Locks, & Mirrors",
+      "2.5L 4-Cylinder, Great on Gas",
     ],
   },
 ];
