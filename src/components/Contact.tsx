@@ -2,7 +2,7 @@ import React from "react";
 import { Phone, MapPin, Clock, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-
+import CarSheetEmbed from "./CarSheetEmbed";
 const contactItems = [
   {
     Icon: Phone,
@@ -125,12 +125,14 @@ const Contact = () => {
         </script>
       </Helmet>
 
+
+      {/* google drive and sheets */}
       <div className="container mx-auto px-6 lg:px-12">
         <h1 className="text-5xl text-purple-500 font-extrabold mb-4 text-center">
           Contact CarNation Elite – Dallas Auto Experts
         </h1>
 
-        {/* Google Form Embed */}
+        {/* Google Forms */}
         <div className="mt-16 max-w-4xl mx-auto">
           <iframe
             src="https://docs.google.com/forms/d/e/1FAIpQLSd0Gm229msbUizNl0a4ogRNVG1ZrK8cnxqy3ir9bf8qRHlLFA/viewform?usp=header"
@@ -144,6 +146,10 @@ const Contact = () => {
           >
             Loading…
           </iframe>
+        </div>
+
+        <div className="mt-16 max-w-4xl mx-auto">
+          <CarSheetEmbed />
         </div>
 
         {/* Contact Info Cards & Map */}
