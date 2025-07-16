@@ -4,7 +4,7 @@ const vehicleData = [
     title: "2017 Hyndai Santa Fe Sport",
     subtitle: "Sport Utility",
     price_usd: 10111,
-    mileage_miles: 190000,
+    mileage_miles: 120000,
     images: [
       "/images/sales/Hyundai_mvp/s7.jpg",
       "/images/sales/Hyundai_mvp/s8.jpg",
