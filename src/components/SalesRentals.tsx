@@ -125,7 +125,7 @@ const vehiclesForSale: VehicleForSale[] = [
     model: "Santa Fe Sport",
     year: 2017,
     price: "$10,111",
-    mileage: "190,000 miles",
+    mileage: "120,000 miles",
     sold: false,
     images: [
       "/images/sales/Hyundai_mvp/s9.jpg",
