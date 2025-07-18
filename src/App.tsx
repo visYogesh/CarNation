@@ -35,23 +35,39 @@
 // export default App;
 
 
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ConfettiEffect from "./components/ConfettiEffect";
 import PrivacyPolicy from "./components/PrivacyPolicy";
-
-
-// privacy toaster
 import PrivacyPopup from "./components/PrivacyPopup";
 
+// Import your analytics functions
+import { initGA, trackPageView } from "./analytics";
+
 const queryClient = new QueryClient();
+
+// Component to handle GA tracking on route change
+function GAListener() {
+  const location = useLocation();
+
+  useEffect(() => {
+    initGA(); // Initialize GA only once
+  }, []);
+
+  useEffect(() => {
+    trackPageView(location.pathname + location.search);
+  }, [location]);
+
+  return null; // No UI
+}
 
 const App = () => (
   <HelmetProvider>
@@ -61,20 +77,18 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-        <PrivacyPopup />
+          <GAListener /> {/* This handles GA tracking */}
+          <PrivacyPopup />
           <Routes>
-            {/* All routes render the SPA and scroll to relevant section */}
             <Route path="/" element={<Index />} />
             <Route path="/home" element={<Index />} />
             <Route path="/about" element={<Index />} />
             <Route path="/services" element={<Index />} />
             <Route path="/sales-rentals" element={<Index />} />
             <Route path="/contact" element={<Index />} />
-            <Route path="/testimonials" element={<Index />} /> {/* ✅ ADD THIS */}
-            <Route path="/privacy_policy" element={<PrivacyPolicy  />} /> {/* ✅ ADD THIS */}
+            <Route path="/testimonials" element={<Index />} />
+            <Route path="/privacy_policy" element={<PrivacyPolicy />} />
             <Route path="/shopping-request" element={<Index />} />
-
-            {/* 404 fallback */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
@@ -84,3 +98,4 @@ const App = () => (
 );
 
 export default App;
+
